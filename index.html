@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FC26 HUB | Ultimate Team</title>
+<style>
+:root {
+  --bg:#080d14;
+  --panel:#111c29;
+  --green:#36e69a;
+  --blue:#168cff;
+  --text:#f5f8fc;
+  --muted:#a5b3c4;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,sans-serif;
+}
+header{
+  background:#101c29;padding:20px 7%;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:15px;
+  border-bottom:1px solid #263748;
+}
+.logo{font-size:27px;font-weight:900;color:var(--green)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--green)}
+.hero{
+  min-height:390px;padding:90px 8%;
+  display:flex;align-items:center;
+  background:linear-gradient(90deg,#08101df2,#08101d66),
+  url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1600');
+  background-size:cover;background-position:center;
+}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:0}
+.hero span{color:var(--green)}
+.hero p{color:#d4deeb;max-width:600px;line-height:1.7}
+.btn{
+  display:inline-block;background:var(--green);
+  color:#07120d;padding:13px 20px;
+  border-radius:7px;text-decoration:none;
+  font-weight:bold;margin-top:12px;
+}
+section{padding:55px 7%}
+h2{font-size:29px;margin-bottom:10px}
+.subtitle{color:var(--muted);margin-bottom:25px}
+.grid{
+  display:grid;grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));gap:20px;
+}
+.card{
+  background:var(--panel);border-radius:12px;
+  overflow:hidden;border:1px solid #25394d;
+}
+.card img{width:100%;height:155px;object-fit:cover}
+.content{padding:18px}
+.content p{color:var(--muted);line-height:1.6}
+.card a{color:var(--green);text-decoration:none}
+.search{
+  display:flex;gap:10px;flex-wrap:wrap;margin:25px 0;
+}
+input,select{
+  padding:13px;background:var(--panel);
+  border:1px solid #34485d;border-radius:7px;
+  color:white;flex:1;min-width:170px;
+}
+.player{
+  padding:18px;background:linear-gradient(145deg,#203c4d,#111c29);
+  border:1px solid #38566c;border-radius:10px;
+}
+.player h3{margin:5px 0}
+.tag{
+  display:inline-block;background:#174a39;
+  color:#70ffbd;padding:5px 9px;
+  border-radius:5px;font-size:12px;
+}
+footer{
+  padding:35px;text-align:center;
+  background:#101c29;color:var(--muted);
+}
+footer a{color:var(--green)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FC26 HUB</div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#modes">Modes</a>
+    <a href="#joueurs">Joueurs</a>
+    <a href="#evolutions">Évolutions</a>
+    <a href="#guides">Guides</a>
+  </nav>
+</header>
+
+<div class="hero" id="accueil">
+  <div>
+    <span class="tag">LE GUIDE ULTIMATE TEAM</span>
+    <h1>WELCOME TO<br><span>FC26 HUB</span></h1>
+    <p>
+      Découvre EA SPORTS FC 26, construis ton équipe,
+      compare les meilleurs joueurs et découvre les
+      meilleures façons de progresser dans Ultimate Team.
+    </p>
+    <a class="btn" href="#joueurs">Découvrir les joueurs</a>
+  </div>
+</div>
+
+<section id="modes">
+  <h2>Les modes de jeu</h2>
+  <p class="subtitle">Découvre les différentes expériences de FC 26.</p>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600">
+      <div class="content">
+        <h3>Ultimate Team</h3>
+        <p>Construis ton équipe de rêve, collectionne les cartes et affronte des joueurs du monde entier.</p>
+        <a href="https://www.ea.com/games/ea-sports-fc/fc-26/news/pitch-notes-fc26-fut-deep-dive">En savoir plus →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600">
+      <div class="content">
+        <h3>Mode Carrière</h3>
+        <p>Deviens entraîneur ou joueur et construis ton histoire dans le football.</p>
+        <a href="https://www.ea.com/games/ea-sports-fc/fc-26">En savoir plus →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600">
+      <div class="content">
+        <h3>Clubs</h3>
+        <p>Crée ton joueur et joue avec tes amis dans des matchs en ligne.</p>
+        <a href="https://www.ea.com/games/ea-sports-fc/fc-26">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="joueurs">
+  <h2>Recherche de joueurs</h2>
+  <p class="subtitle">Recherche des joueurs et explore leurs différentes versions.</p>
+  <div class="search">
+    <input id="query" placeholder="Nom du joueur..." oninput="filterPlayers()">
+    <select id="position" onchange="filterPlayers()">
+      <option value="">Tous les postes</option>
+      <option>BU</option><option>MG</option>
+      <option>MC</option><option>DC</option><option>G</option>
+    </select>
+  </div>
+  <div class="grid" id="players"></div>
+  <p style="color:#a5b3c4;font-size:13px">
+    Démonstration : cette liste est illustrative et ne constitue
+    pas un classement officiel ou une base de données en direct.
+  </p>
+  <a class="btn" href="https://www.futbin.com/players">Base complète FUTBIN</a>
+</section>
+
+<section id="evolutions">
+  <h2>Les évolutions (EVO)</h2>
+  <p class="subtitle">Améliore tes joueurs et développe ton équipe.</p>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600">
+      <div class="content">
+        <h3>Comprendre les EVO</h3>
+        <p>Découvre les conditions, les améliorations et les joueurs éligibles.</p>
+        <a href="https://www.futbin.com/26/evolutions">Voir les évolutions →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600">
+      <div class="content">
+        <h3>Construire son équipe</h3>
+        <p>Teste tes compositions et optimise la chimie de ton équipe.</p>
+        <a href="https://www.fut.gg/26/squad-builder/">Créer une équipe →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <h2>Comment progresser ?</h2>
+  <div class="grid">
+    <div class="player"><h3>01. Rivals et Champions</h3><p>Joue régulièrement et apprends à maîtriser les matchs compétitifs.</p></div>
+    <div class="player"><h3>02. Les SBC</h3><p>Apprends à gérer tes ressources et à choisir les défis intéressants.</p></div>
+    <div class="player"><h3>03. Le marché</h3><p>Compare les prix avant d'acheter ou de vendre tes joueurs.</p></div>
+    <div class="player"><h3>04. Les tactiques</h3><p>Travaille tes formations, tes rôles et tes styles de jeu.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Les sites indispensables</h2>
+  <div class="grid">
+    <div class="player"><h3>FUTBIN</h3><p>Joueurs, prix, statistiques et évolutions.</p><a href="https://www.futbin.com/">Visiter FUTBIN →</a></div>
+    <div class="player"><h3>FUT.GG</h3><p>Comparaison, cartes et création d'équipe.</p><a href="https://www.fut.gg/fc-26/">Visiter FUT.GG →</a></div>
+    <div class="player"><h3>EA SPORTS</h3><p>Informations officielles et nouveautés.</p><a href="https://www.ea.com/games/ea-sports-fc/fc-26">Visiter EA →</a></div>
+  </div>
+</section>
+
+<footer>
+  <h2>FC26 HUB</h2>
+  <p>Le football, les joueurs et Ultimate Team au même endroit.</p>
+  <p>Site indépendant de fans. Non affilié à EA SPORTS.</p>
+  <p>© 2026 FC26 HUB</p>
+</footer>
+
+<script>
+const players = [
+ {name:"Kylian Mbappé",pos:"BU"},
+ {name:"Erling Haaland",pos:"BU"},
+ {name:"Mohamed Salah",pos:"MG"},
+ {name:"Jude Bellingham",pos:"MC"},
+ {name:"Virgil van Dijk",pos:"DC"},
+ {name:"Alisson Becker",pos:"G"},
+ {name:"Lamine Yamal",pos:"MG"},
+ {name:"Cristiano Ronaldo",pos:"BU"}
+];
+
+function filterPlayers(){
+ const q=document.getElementById("query").value.toLowerCase();
+ const pos=document.getElementById("position").value;
+ const filtered=players.filter(p=>
+  p.name.toLowerCase().includes(q) &&
+  (!pos || p.pos===pos)
+ );
+ document.getElementById("players").innerHTML=
+ filtered.map(p=>`
+ <div class="player">
+  <span class="tag">${p.pos}</span>
+  <h3>${p.name}</h3>
+  <p>Consulte les différentes cartes et statistiques.</p>
+  <a href="https://www.futbin.com/players">Voir ses cartes sur FUTBIN →</a>
+ </div>
+ `).join("") || "<p>Aucun joueur trouvé.</p>";
+}
+filterPlayers();
+</script>
+</body>
+</html>
+
